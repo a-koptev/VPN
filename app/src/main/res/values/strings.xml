@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">VPN</string>
+    <string name="default_country">Лучшее местоположение</string>
+    <string name="default_city">Быстрейший сервер</string>
+    <string name="disable_state">Отключен</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="default_ip">Ваш IP: 193.218.139.99</string>
+</resources>
