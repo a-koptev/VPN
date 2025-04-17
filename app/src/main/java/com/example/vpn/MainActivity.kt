@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.TextureView
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -14,7 +13,6 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -34,14 +32,14 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.pop_up_back).visibility = View.GONE
 
         findViewById<LinearLayout>(R.id.defaultServer).setOnClickListener {
-            val intent = Intent(this, MainActivity2::class.java)
+            val intent = Intent(this, MapActivity::class.java)
             startActivity(intent)
         }
 
         findViewById<ImageButton>(R.id.mainButton).setOnClickListener { l -> clickVPNButton(l) }
         findViewById<Button>(R.id.cancel_butt).setOnClickListener { cancelDisconnect() }
         findViewById<Button>(R.id.disconnect_butt).setOnClickListener { disconnect() }
-        findViewById<ImageButton>(R.id.close_butt).setOnClickListener {cancelDisconnect() }
+        findViewById<ImageButton>(R.id.close_butt).setOnClickListener { cancelDisconnect() }
     }
 
     private fun clickVPNButton(mainButton: View) {
