@@ -130,11 +130,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/mapDownFrameColor"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/pop_up"
@@ -181,10 +181,11 @@
             android:id="@+id/guideline"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_begin="149dp"
+            app:layout_constraintGuide_begin="150dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

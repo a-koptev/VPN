@@ -4,5 +4,5 @@
     <string name="default_city">Быстрейший сервер</string>
     <string name="disable_state">Отключен</string>
     <string name="title_activity_maps">MapsActivity</string>
-    <string name="default_ip">Ваш IP: 193.218.139.99</string>
+    <string name="default_ip">Ваш IP: </string>
 </resources>

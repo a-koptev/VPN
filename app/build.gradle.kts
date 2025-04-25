@@ -54,4 +54,5 @@ dependencies {
 
     implementation("com.yandex.android:maps.mobile:4.5.0-lite")
     implementation("androidx.sqlite:sqlite-ktx:2.5.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
 }

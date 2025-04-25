@@ -78,8 +78,8 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:scaleType="centerInside"
-                        app:srcCompat="@drawable/czech" />
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/flag_cz" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

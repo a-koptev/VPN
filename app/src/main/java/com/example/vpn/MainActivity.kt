@@ -15,9 +15,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-    private var isON: Boolean  = false
+    private var isON: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,16 +48,18 @@ class MainActivity : AppCompatActivity() {
     private fun clickVPNButton(mainButton: View) {
         mainButton as ImageButton
 
+        checkIpByApi()
+
         if (!isON) {
             mainButton.setImageResource(R.drawable.button_load)
             val handler = Handler(Looper.getMainLooper())
             handler.postDelayed({
                 mainButton.setImageResource(R.drawable.button_off)
                 findViewById<TextView>(R.id.state).text = "00 : 00 : 01"
-                findViewById<TextView>(R.id.ip).text = "Ваш IP: 51.77.108.59"
+//                findViewById<TextView>(R.id.ip).text = "Ваш IP: 51.77.108.59"
                 findViewById<TextView>(R.id.country).text = "Великобритания"
                 findViewById<TextView>(R.id.city).text = "Лондон"
-                findViewById<ImageView>(R.id.flag).setImageResource(R.drawable.uk)
+                findViewById<ImageView>(R.id.flag).setImageResource(R.drawable.flag_gb)
                 isON = true
             }, 500)
         } else {
@@ -63,12 +68,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun cancelDisconnect(){
+    private fun cancelDisconnect() {
         findViewById<View>(R.id.pop_up_back).visibility = View.GONE
         findViewById<ConstraintLayout>(R.id.pop_up).visibility = View.GONE
     }
 
-    private fun disconnect(){
+    private fun disconnect() {
         findViewById<View>(R.id.pop_up_back).visibility = View.GONE
         findViewById<ConstraintLayout>(R.id.pop_up).visibility = View.GONE
 
@@ -79,6 +84,19 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.city).setText(R.string.default_city)
         findViewById<ImageView>(R.id.flag).setImageResource(R.drawable.flag_blank)
         isON = false
+    }
+
+    private fun checkIpByApi() {
+        val ipTextField = findViewById<TextView>(R.id.ip)
+        lifecycleScope.launch {
+            val ipFromApi = Api.getIpAddress()
+            if (ipFromApi != null) {
+                ipTextField.text = "Ваш IP: "+ ipFromApi
+            } else {
+                ipTextField.text = "Api don't know"
+            }
+        }
+
     }
 
 
